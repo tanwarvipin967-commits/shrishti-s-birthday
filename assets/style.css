@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #120016;
+  overflow: hidden;
+}
+
+/* ================= START SCREEN ================= */
+
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #ffb3d9, #2b0033);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.start-box {
+  text-align: center;
+  color: white;
+}
+
+.start-box h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.start-box p {
+  color: #ffe6f2;
+  margin-bottom: 20px;
+}
+
+#startBtn {
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff4d6d, #ff99cc);
+  color: white;
+  box-shadow: 0 0 20px #ff66cc;
+}
+
+/* ================= SCENE ================= */
+
+#scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+/* ================= BACKGROUND ================= */
+
+.night {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    -45deg,
+    #ffb3d9,
+    #d580ff,
+    #ff99cc,
+    #b366ff
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* ================= PHOTO ================= */
+
+.photo {
+  width: 220px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 182, 193, 0.8);
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+/* ================= TEXT ================= */
+
+#typingText {
+  max-width: 420px;
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+  color: #fff0f5;
+  font-family: 'Pacifico', cursive;
+}
+
+
+/* ================= FLOWER RAIN ================= */
+
+.flower {
+  position: fixed;
+  top: -10%;
+  font-size: 22px;
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+/* ================= FINAL SCREEN ================= */
+#final {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #ff99cc, #1a001f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  #scene {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #typingText {
+    font-size: 1.2rem;
+  }
+
+  .photo {
+    width: 200px;
+  }
+}
+
+.sparkle {
+  position: fixed;
+  font-size: 14px;
+  animation: sparkle 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  from {
+    transform: translateY(0) scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-80vh) scale(1.2);
+    opacity: 0;
+  }
+}
+.gift {
+  font-size: 80px;
+  animation: giftOpen 1.5s ease forwards;
+}
+
+@keyframes giftOpen {
+  0% { transform: scale(0.5); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
